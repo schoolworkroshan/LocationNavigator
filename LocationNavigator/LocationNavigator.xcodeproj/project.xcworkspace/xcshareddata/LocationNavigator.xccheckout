@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>7CE9C2C8-0793-4D77-9B38-6264432AF2A6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>LocationNavigator</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C74CF55B72EE7E966A1AA667A2C17A80C57B2838</key>
 		<string>https://github.com/schoolworkroshan/LocationNavigator.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LocationNavigator/LocationNavigator.xcodeproj/project.xcworkspace</string>
+	<string>LocationNavigator/LocationNavigator.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C74CF55B72EE7E966A1AA667A2C17A80C57B2838</key>
