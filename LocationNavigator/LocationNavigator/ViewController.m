@@ -15,6 +15,8 @@
 @implementation ViewController
 @synthesize location, locationManager;
 //test
+
+//test test
 - (void)viewDidLoad {
     [super viewDidLoad];
     
