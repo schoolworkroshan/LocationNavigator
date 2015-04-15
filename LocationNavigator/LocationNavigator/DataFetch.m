@@ -22,6 +22,11 @@
    // [PFUser logInWithUsername:@"rosh" password:@"rosh"];
        [PFUser logOutInBackground];
 }
+- (IBAction)mapButton:(id)sender {
+    _mapView.delegate = self;
+   
+}
+
 
 
 

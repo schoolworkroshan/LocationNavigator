@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 - (IBAction)Sign:(id)sender;
 - (IBAction)signOut:(id)sender;
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+
 @end
 

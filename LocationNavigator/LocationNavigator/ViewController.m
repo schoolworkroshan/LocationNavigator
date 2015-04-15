@@ -26,14 +26,7 @@
     [self.locationManager startUpdatingLocation];
      
    }
-- (IBAction)mapButton:(id)sender {
-    _mapView.delegate = self;
-    }
 
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    
-    [self.mapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1f, 0.1f)) animated:YES];
-}
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface DataFetch : ViewController <UITextFieldDelegate>
+@interface DataFetch : ViewController <UITextFieldDelegate,MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *user;
 - (IBAction)done:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *locality;
 @property (weak, nonatomic) IBOutlet UILabel *zipcode;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
