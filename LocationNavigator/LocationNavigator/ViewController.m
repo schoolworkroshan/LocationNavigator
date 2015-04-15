@@ -16,8 +16,7 @@
 @synthesize location, locationManager;
 //test
 
-//test test
-////hahahhaha i did it
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
