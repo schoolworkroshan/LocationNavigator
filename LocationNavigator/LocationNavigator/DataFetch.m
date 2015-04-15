@@ -88,6 +88,7 @@
 
 
 - (IBAction)done:(id)sender {
+    //Pushed
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:self.user.text];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
