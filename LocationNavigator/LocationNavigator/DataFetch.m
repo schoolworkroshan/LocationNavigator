@@ -125,9 +125,6 @@
                         self.locality.text= placemark.locality;
                         self.zipcode.text= placemark.postalCode;
                         
-                        
-                        
-                        
                     }
                 }];
                 NSLog(@"location is %@", object[@"location"]);
