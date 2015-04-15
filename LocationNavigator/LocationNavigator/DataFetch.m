@@ -93,6 +93,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //Changed here
+            //Again
             // The find succeeded.
             // Do something with the found objects
             for (PFObject *object in objects) {
