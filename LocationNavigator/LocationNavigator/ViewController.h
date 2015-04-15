@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate, UITextFieldDelegate>
+@interface ViewController : UIViewController <CLLocationManagerDelegate, UITextFieldDelegate,MKMapViewDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong,atomic) NSMutableArray *locationsArray;
 @property (strong, nonatomic) CLLocation *location;
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 - (IBAction)Sign:(id)sender;
 - (IBAction)signOut:(id)sender;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @end
 

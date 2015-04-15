@@ -24,6 +24,7 @@
 }
 
 
+
 -(void) viewDidAppear:(BOOL)animated     {
 //    PFQuery *query = [PFUser query];
 //    [query whereKey:@"username" equalTo:@"parivesh"];

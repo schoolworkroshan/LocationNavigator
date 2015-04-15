@@ -5,9 +5,8 @@
 //  Created by Roshan Lamichhane on 4/14/15.
 //  Copyright (c) 2015 Vastika. All rights reserved.
 //
-//committing
+
 #import "ViewController.h"
-//test
 @interface ViewController ()
 
 @end
@@ -27,6 +26,14 @@
     [self.locationManager startUpdatingLocation];
      
    }
+- (IBAction)mapButton:(id)sender {
+    _mapView.delegate = self;
+    }
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    
+    [self.mapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1f, 0.1f)) animated:YES];
+}
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
