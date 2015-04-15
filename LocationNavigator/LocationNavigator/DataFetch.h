@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
-@interface DataFetch : ViewController
+@interface DataFetch : ViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *user;
+- (IBAction)done:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *locality;
+@property (weak, nonatomic) IBOutlet UILabel *zipcode;
 
 @end

@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -28,6 +26,11 @@
     [self.locationManager startUpdatingLocation];
      
    }
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return true;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -52,5 +55,33 @@
 
 -(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"Sorry");
+}
+
+
+- (IBAction)Sign:(id)sender {
+    [PFUser logInWithUsernameInBackground:self.userName.text password:self.password.text block:^(PFUser *user, NSError *error) {if (user) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Signed in"
+                                                        message:@"Thanks"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+        NSLog(@"Successfully signed in");
+    } else {
+        // The login failed. Check error to see why.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in"
+                                                        message:@"Sorry"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
+    }];// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)signOut:(id)sender {
+    [PFUser logOutInBackground];
 }
 @end
