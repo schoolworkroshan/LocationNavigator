@@ -92,6 +92,7 @@
     [query whereKey:@"username" equalTo:self.user.text];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            //Changed here
             // The find succeeded.
             // Do something with the found objects
             for (PFObject *object in objects) {
