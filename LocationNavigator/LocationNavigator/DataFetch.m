@@ -23,47 +23,6 @@
        [PFUser logOutInBackground];
 }
 
-
--(void) viewDidAppear:(BOOL)animated     {
-//    PFQuery *query = [PFUser query];
-//    [query whereKey:@"username" equalTo:@"parivesh"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-//            // Do something with the found objects
-//            for (PFObject *object in objects) {
-//                double lat;
-//                double longi;
-//                NSLog(@"location %@",object[@"location"]);
-//                
-//                //Converting the data fetched from the PFObject and converting it to the object of latitude and longitude
-//                PFGeoPoint *local = object[@"location"];
-//                NSLog(@"%@ is local",local);
-//                lat= local.latitude;
-//                longi= local.longitude;
-//                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//                CLLocation *location = [[CLLocation alloc] initWithLatitude:lat longitude:longi];
-//                [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-//                    
-//                    if (error) {
-//                        NSLog(@"failed with error: %@", error);
-//                        return;
-//                    }
-//                    if(placemarks.count > 0) {
-//                        
-//                        
-//                        CLPlacemark *placemark = [placemarks lastObject];
-//                        NSLog(@"%@",placemark.addressDictionary);
-//                    }
-//                }];
-//                NSLog(@"location is %@", object[@"location"]);
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -123,9 +82,6 @@
                        // NSLog(@"%@",placemark.locality);
                         self.locality.text= placemark.locality;
                         self.zipcode.text= placemark.postalCode;
-                        
-                        
-                        
                         
                     }
                 }];
