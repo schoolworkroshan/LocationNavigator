@@ -14,9 +14,7 @@
 @interface DataFetch () <MKMapViewDelegate> {
     MKPolyline *_routeOverlay;
     MKRoute *_currentRoute;
-    
-    double currentLot;
-    double currentLong;
+
 
     double lat;
     double longi;
@@ -78,15 +76,12 @@
 {
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = NO;
-    
-    currentLong = userLocation.coordinate.longitude;
-    currentLot = userLocation.coordinate.latitude;
+    _mapView.userTrackingMode = YES;
     
     MKCoordinateRegion viewregion=  MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 0.03f, 0.03f);
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate=userLocation.coordinate;
-    //[self.mapView setRegion:viewregion];
+    [self.mapView setRegion:viewregion];
     [self.mapView addAnnotation:annotation];
    }
 
@@ -153,7 +148,7 @@
     
     
     //////
-    CLLocationCoordinate2D sourceCoords = CLLocationCoordinate2DMake(lat, longi);
+    CLLocationCoordinate2D sourceCoords = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
     
     
     
@@ -166,7 +161,7 @@
     MKMapItem *source = [[MKMapItem alloc] initWithPlacemark:sourcePlacemark];
     [directionsRequest setSource:source];
     // Make the destination
-    CLLocationCoordinate2D destinationCoords = CLLocationCoordinate2DMake(currentLot, currentLong);
+    CLLocationCoordinate2D destinationCoords = CLLocationCoordinate2DMake(32.882694, -96.971638);
     
     
     
