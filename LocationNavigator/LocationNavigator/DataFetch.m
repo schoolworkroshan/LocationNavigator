@@ -100,10 +100,11 @@
                 
                 //Converting the data fetched from the PFObject and converting it to the object of latitude and longitude
                 PFGeoPoint *local = object[@"location"];
-                NSLog(@"%@ is local",local);
+               // NSLog(@"%@ is local",local);
                 lat= local.latitude;
                 longi= local.longitude;
                 CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+                NSLog(@"location from cllocation in done %f", location.coordinate.latitude);
                 location = [[CLLocation alloc] initWithLatitude:lat longitude:longi];
                 [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
                     
@@ -119,6 +120,7 @@
                          self.zipcode.text= placemark.postalCode;
                         
                     }
+                    [self handleRoutePressed:location];
                 }];
                // NSLog(@"location is %@", object[@"location"]);
             }
@@ -127,10 +129,13 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    [self handleRoutePressed:location];
+    
 }
 
 - (void)handleRoutePressed:(CLLocation *)location {
+    
+    
+    NSLog(@"location from cllocation %f", location.coordinate.latitude);
     // We're working
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
@@ -200,6 +205,13 @@
     
 }
 
-
+#pragma mark - MKMapViewDelegate methods
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.lineWidth = 4.0;
+    return  renderer;
+}
 
 @end

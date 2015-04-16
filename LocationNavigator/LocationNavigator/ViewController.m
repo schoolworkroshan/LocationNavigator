@@ -47,7 +47,7 @@
     [currentUser setObject:currentLocation forKey:@"location"];
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSLog(@"Saved location");
+            //NSLog(@"Saved location");
         }
     }];
     NSLog(@"%@",self.location);
