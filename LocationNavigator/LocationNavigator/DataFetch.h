@@ -16,4 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *zipcode;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (weak, nonatomic) IBOutlet UIButton *routeButton;
+@property (weak, nonatomic) IBOutlet UIButton *routeDetailsButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+- (IBAction)handleRoutePressed:(id)sender;
+
 @end
