@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Moving User-->
+        <!--Stationary User-->
         <scene sceneID="Sve-Hw-Zux">
             <objects>
                 <viewController id="IfJ-TL-tAs" customClass="DataFetch" sceneMemberID="viewController">
@@ -100,7 +100,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Moving User" id="Jdf-bb-5mv" userLabel="View Location"/>
+                    <tabBarItem key="tabBarItem" title="Stationary User" id="Jdf-bb-5mv" userLabel="View Location"/>
                     <connections>
                         <outlet property="locality" destination="z2M-P0-4ng" id="68f-Sk-xWX"/>
                         <outlet property="mapView" destination="Iva-VY-FDb" id="v6o-Ee-oVp"/>
@@ -151,7 +151,7 @@
             </objects>
             <point key="canvasLocation" x="1388" y="249"/>
         </scene>
-        <!--View Location-->
+        <!--Moving User-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -214,7 +214,7 @@
                             <constraint firstItem="SJx-ob-g39" firstAttribute="top" secondItem="rfF-Pp-wDS" secondAttribute="bottom" constant="75" id="zje-Nj-piK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Location" id="9Td-wv-ggm" userLabel="Moving body"/>
+                    <tabBarItem key="tabBarItem" title="Moving User" id="9Td-wv-ggm" userLabel="Moving body"/>
                     <connections>
                         <outlet property="password" destination="rfF-Pp-wDS" id="vKF-Ew-2wn"/>
                         <outlet property="userName" destination="GBe-OZ-LWy" id="nsD-6f-7fs"/>
