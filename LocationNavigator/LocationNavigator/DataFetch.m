@@ -25,10 +25,23 @@
     // Do any additional setup after loading the view.
    // [PFUser logInWithUsername:@"rosh" password:@"rosh"];
        [PFUser logOutInBackground];
+
 }
 - (IBAction)mapButton:(id)sender {
     _mapView.delegate = self;
-   
+    _mapView.showsUserLocation = YES;
+    _mapView.userTrackingMode = YES;
+    [_mapView setMapType: MKMapTypeStandard];
+    CLLocationDistance distance = 800;
+    CLLocationCoordinate2D myCoordinate;
+    myCoordinate.latitude = lat;
+    myCoordinate.longitude = longi;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(myCoordinate,
+                                                                   distance,
+                                                                   distance);
+    MKCoordinateRegion adjusted_region = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:adjusted_region animated:YES];
+
 }
 
 
@@ -56,18 +69,16 @@
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    CLLocationDistance distance = 1000;
-    CLLocationCoordinate2D myCoordinate;
-    myCoordinate.latitude = lat;
-    myCoordinate.longitude = longi;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(myCoordinate,
-                                                                   distance,
-                                                                   distance);
+    _mapView.delegate = self;
+    _mapView.showsUserLocation = YES;
+    _mapView.userTrackingMode = YES;
     
-    
-    MKCoordinateRegion adjusted_region = [self.mapView regionThatFits:region];
-    [self.mapView setRegion:adjusted_region animated:YES];
-}
+    MKCoordinateRegion viewregion=  MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 0.03f, 0.03f);
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    annotation.coordinate=userLocation.coordinate;
+    [self.mapView setRegion:viewregion];
+    [self.mapView addAnnotation:annotation];
+   }
 
 - (IBAction)done:(id)sender {
     //Pushed
@@ -98,13 +109,11 @@
                         return;
                     }
                     if(placemarks.count > 0) {
-                        
-                        
                         CLPlacemark *placemark = [placemarks lastObject];
                       //  NSLog(@"%@",placemark.addressDictionary);
                        // NSLog(@"%@",placemark.locality);
                         self.locality.text= placemark.locality;
-                        self.zipcode.text= placemark.postalCode;
+                         self.zipcode.text= placemark.postalCode;
                         
                     }
                 }];
@@ -117,4 +126,7 @@
     }];
     
 }
+
+
+
 @end
