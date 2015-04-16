@@ -122,6 +122,9 @@
 }
 
 - (void)handleRoutePressed:(CLLocation *)location {
+    
+    
+    NSLog(@"location %@", location);
     // We're working
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
