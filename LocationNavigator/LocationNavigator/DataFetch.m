@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Vastika. All rights reserved.
 //
 
+
+////stationary user
+
 #import "DataFetch.h"
 #import <Parse/Parse.h>
 
@@ -75,14 +78,11 @@
     [query whereKey:@"username" equalTo:self.user.text];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            //Changed here
-            //Again
-            // The find succeeded.
-            // Do something with the found objects
+            
             for (PFObject *object in objects) {
                 //double lat;
                 //double longi;
-                NSLog(@"location %@",object[@"location"]);
+               // NSLog(@"location %@",object[@"location"]);
                 
                 //Converting the data fetched from the PFObject and converting it to the object of latitude and longitude
                 PFGeoPoint *local = object[@"location"];
