@@ -15,7 +15,8 @@
     MKPolyline *_routeOverlay;
     MKRoute *_currentRoute;
 
-
+    double currentLat;
+    double currentLong;
     double lat;
     double longi;
     
@@ -76,12 +77,15 @@
 {
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = YES;
+    //_mapView.userTrackingMode = YES;
+    
+    currentLat = userLocation.coordinate.latitude;
+    currentLong = userLocation.coordinate.longitude;
     
     MKCoordinateRegion viewregion=  MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 0.03f, 0.03f);
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate=userLocation.coordinate;
-    [self.mapView setRegion:viewregion];
+    //[self.mapView setRegion:viewregion];
     [self.mapView addAnnotation:annotation];
    }
 
@@ -94,9 +98,6 @@
         if (!error) {
             
             for (PFObject *object in objects) {
-                //double lat;
-                //double longi;
-               // NSLog(@"location %@",object[@"location"]);
                 
                 //Converting the data fetched from the PFObject and converting it to the object of latitude and longitude
                 PFGeoPoint *local = object[@"location"];
@@ -161,7 +162,7 @@
     MKMapItem *source = [[MKMapItem alloc] initWithPlacemark:sourcePlacemark];
     [directionsRequest setSource:source];
     // Make the destination
-    CLLocationCoordinate2D destinationCoords = CLLocationCoordinate2DMake(32.882694, -96.971638);
+    CLLocationCoordinate2D destinationCoords = CLLocationCoordinate2DMake(currentLat, currentLong);
     
     
     
